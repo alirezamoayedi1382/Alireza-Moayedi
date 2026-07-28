@@ -100,15 +100,15 @@ export function HeroSection({ onOpenShowreel, onExploreGames }: HeroSectionProps
             
             {/* Eyebrow & Active World Indicator Badge */}
             <div className="space-y-2">
-              <div className="inline-flex items-center gap-2 bg-gray-100/80 backdrop-blur-xs border border-gray-200 px-3 py-1 rounded-full">
+              <div className="inline-flex items-center gap-2 bg-[#181b21] backdrop-blur-xs border border-white/10 px-3 py-1 rounded-full">
                 <span className="w-2 h-2 rounded-full animate-ping" style={{ backgroundColor: currentWorld.accentColor }} />
-                <span className="text-[11px] font-extrabold uppercase text-[#5c6574]">
+                <span className="text-[11px] font-extrabold uppercase text-[#94a3b8]">
                   ما استودیوی <span className="text-[#635BFF]">پیکسل‌فورج</span> هستیم
                 </span>
               </div>
 
               {/* Active 3D Environment Banner */}
-              <div className="flex items-center gap-2 text-xs font-extrabold text-[#121417]">
+              <div className="flex items-center gap-2 text-xs font-extrabold text-white">
                 <Compass className="w-4 h-4 text-[#635BFF] shrink-0" />
                 <span>نمای سه‌بعدی فعلی:</span>
                 <span className="px-2 py-0.5 rounded-md text-white font-bold text-[11px]" style={{ backgroundColor: currentWorld.accentColor }}>
@@ -118,14 +118,14 @@ export function HeroSection({ onOpenShowreel, onExploreGames }: HeroSectionProps
             </div>
 
             {/* Main Headline */}
-            <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-[#121417] leading-[1.1]">
+            <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white leading-[1.1]">
               بازی.<br />
               خلق.<br />
               الهام.
             </h1>
 
             {/* Subtitle */}
-            <p className="text-sm sm:text-base text-[#5c6574] max-w-md font-medium leading-relaxed">
+            <p className="text-sm sm:text-base text-[#94a3b8] max-w-md font-medium leading-relaxed">
               {currentWorld.subtitle} — ما بازی‌هایی طراحی می‌کنیم و می‌سازیم که میلیون‌ها بازیکن را در سراسر جهان به هم متصل می‌سازد.
             </p>
 
@@ -134,7 +134,7 @@ export function HeroSection({ onOpenShowreel, onExploreGames }: HeroSectionProps
               <button
                 onClick={onExploreGames}
                 id="explore-games-btn"
-                className="group inline-flex items-center gap-2.5 bg-[#121417] text-white text-xs font-bold px-6 py-3.5 rounded-full hover:bg-black transition-all shadow-sm hover:shadow-md active:scale-95"
+                className="group inline-flex items-center gap-2.5 bg-[#635BFF] text-white text-xs font-bold px-6 py-3.5 rounded-full hover:bg-[#5248ff] transition-all shadow-lg hover:shadow-[#635BFF]/25 active:scale-95"
               >
                 <span>مشاهده بازی‌های ما</span>
                 <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
@@ -143,23 +143,23 @@ export function HeroSection({ onOpenShowreel, onExploreGames }: HeroSectionProps
               <button
                 onClick={onOpenShowreel}
                 id="watch-showreel-btn"
-                className="group inline-flex items-center gap-3 text-xs font-bold text-[#121417] hover:text-black px-2 py-2.5 transition-colors"
+                className="group inline-flex items-center gap-3 text-xs font-bold text-gray-200 hover:text-white px-2 py-2.5 transition-colors"
               >
-                <div className="w-9 h-9 rounded-full bg-white border border-gray-200 flex items-center justify-center shadow-xs group-hover:scale-105 group-hover:border-black transition-all">
-                  <Play className="w-3.5 h-3.5 fill-current text-[#121417] translate-x-0.5" />
+                <div className="w-9 h-9 rounded-full bg-[#181b21] border border-white/10 flex items-center justify-center shadow-xs group-hover:scale-105 group-hover:border-white/30 transition-all">
+                  <Play className="w-3.5 h-3.5 fill-current text-white translate-x-0.5" />
                 </div>
                 <span className="tracking-wide">تماشای ویدیوی استودیو</span>
               </button>
             </div>
 
             {/* Hero Stats Row */}
-            <div className="pt-8 border-t border-gray-200/80 grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-4">
+            <div className="pt-8 border-t border-white/10 grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-4">
               {HERO_STATS.map((stat) => (
                 <div key={stat.label} className="space-y-1">
-                  <div className="text-2xl sm:text-3xl font-extrabold text-[#121417] tracking-tight">
+                  <div className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
                     {stat.value}
                   </div>
-                  <div className="text-[10px] font-bold text-[#6b7280] leading-tight">
+                  <div className="text-[10px] font-bold text-gray-400 leading-tight">
                     {stat.label}
                   </div>
                 </div>
@@ -210,7 +210,7 @@ export function HeroSection({ onOpenShowreel, onExploreGames }: HeroSectionProps
 
               {/* Vertical Interactive Dots Navigation (Side Control Bar) */}
               <div 
-                className="absolute -left-2 sm:left-2 top-1/2 -translate-y-1/2 flex flex-col items-center gap-3 p-2 bg-white/80 backdrop-blur-md border border-gray-200/80 rounded-2xl shadow-lg z-20"
+                className="absolute -left-2 sm:left-2 top-1/2 -translate-y-1/2 flex flex-col items-center gap-3 p-2 bg-[#161920]/90 backdrop-blur-md border border-white/10 rounded-2xl shadow-xl z-20"
                 onClick={(e) => e.stopPropagation()}
               >
                 {HERO_3D_WORLDS.map((world, idx) => {
@@ -225,8 +225,8 @@ export function HeroSection({ onOpenShowreel, onExploreGames }: HeroSectionProps
                         aria-label={`تغییر زاویه به ${world.title}`}
                         className={`transition-all duration-300 rounded-full flex items-center justify-center ${
                           isActive
-                            ? 'w-4 h-4 scale-110 shadow-md ring-2 ring-offset-2 ring-black'
-                            : 'w-2.5 h-2.5 bg-gray-300 hover:bg-gray-500 hover:scale-125'
+                            ? 'w-4 h-4 scale-110 shadow-md ring-2 ring-offset-2 ring-[#635BFF]'
+                            : 'w-2.5 h-2.5 bg-gray-600 hover:bg-gray-400 hover:scale-125'
                         }`}
                         style={{ backgroundColor: isActive ? world.accentColor : undefined }}
                       />
@@ -248,24 +248,24 @@ export function HeroSection({ onOpenShowreel, onExploreGames }: HeroSectionProps
             </div>
 
             {/* 3D Camera & World Control Toolbar Below Stage */}
-            <div className="mt-2 w-full max-w-lg bg-white/90 backdrop-blur-md border border-gray-200 rounded-2xl p-2.5 px-4 shadow-sm flex items-center justify-between gap-2 text-xs font-bold text-[#121417]">
+            <div className="mt-2 w-full max-w-lg bg-[#161920]/90 backdrop-blur-md border border-white/10 rounded-2xl p-2.5 px-4 shadow-sm flex items-center justify-between gap-2 text-xs font-bold text-white">
               
               {/* World Prev / Next Buttons */}
               <div className="flex items-center gap-1">
                 <button
                   onClick={() => setActiveDot((prev) => (prev - 1 + HERO_3D_WORLDS.length) % HERO_3D_WORLDS.length)}
-                  className="p-1.5 rounded-lg hover:bg-gray-100 transition-colors"
+                  className="p-1.5 rounded-lg hover:bg-white/10 text-gray-300 hover:text-white transition-colors"
                   title="جهان قبلی"
                   aria-label="جهان قبلی"
                 >
                   <ChevronRight className="w-4 h-4" />
                 </button>
-                <span className="text-[11px] text-gray-500 px-1">
+                <span className="text-[11px] text-gray-400 px-1">
                   {activeDot + 1} / {HERO_3D_WORLDS.length}
                 </span>
                 <button
                   onClick={() => setActiveDot((prev) => (prev + 1) % HERO_3D_WORLDS.length)}
-                  className="p-1.5 rounded-lg hover:bg-gray-100 transition-colors"
+                  className="p-1.5 rounded-lg hover:bg-white/10 text-gray-300 hover:text-white transition-colors"
                   title="جهان بعدی"
                   aria-label="جهان بعدی"
                 >
@@ -274,7 +274,7 @@ export function HeroSection({ onOpenShowreel, onExploreGames }: HeroSectionProps
               </div>
 
               {/* Center Status / Drag Prompt */}
-              <div className="hidden sm:flex items-center gap-1.5 text-[10px] text-gray-500 font-semibold">
+              <div className="hidden sm:flex items-center gap-1.5 text-[10px] text-gray-400 font-semibold">
                 <RefreshCw className={`w-3 h-3 text-[#635BFF] ${isAutoRotate ? 'animate-spin' : ''}`} />
                 <span>برای چرخش آزاد کشیدن موشواره را امتحان کنید</span>
               </div>
@@ -284,7 +284,7 @@ export function HeroSection({ onOpenShowreel, onExploreGames }: HeroSectionProps
                 <button
                   onClick={() => setIsZoomed(!isZoomed)}
                   className={`p-1.5 rounded-lg border transition-colors ${
-                    isZoomed ? 'bg-[#121417] text-white border-black' : 'border-gray-200 hover:bg-gray-100'
+                    isZoomed ? 'bg-[#635BFF] text-white border-[#635BFF]' : 'border-white/10 text-gray-300 hover:bg-white/10'
                   }`}
                   title={isZoomed ? 'بزرگ‌نمایی عادی' : 'بزرگ‌نمایی ۳ بعدی'}
                   aria-label="بزرگ‌نمایی"
@@ -295,7 +295,7 @@ export function HeroSection({ onOpenShowreel, onExploreGames }: HeroSectionProps
                 <button
                   onClick={() => setIsAutoRotate(!isAutoRotate)}
                   className={`p-1.5 rounded-lg border transition-colors ${
-                    isAutoRotate ? 'bg-[#635BFF] text-white border-[#635BFF]' : 'border-gray-200 hover:bg-gray-100'
+                    isAutoRotate ? 'bg-[#635BFF] text-white border-[#635BFF]' : 'border-white/10 text-gray-300 hover:bg-white/10'
                   }`}
                   title={isAutoRotate ? 'توقف چرخش خودکار' : 'فعال‌سازی چرخش خودکار'}
                   aria-label="چرخش خودکار"
@@ -305,7 +305,7 @@ export function HeroSection({ onOpenShowreel, onExploreGames }: HeroSectionProps
 
                 <button
                   onClick={resetCamera}
-                  className="p-1.5 rounded-lg border border-gray-200 hover:bg-gray-100 transition-colors"
+                  className="p-1.5 rounded-lg border border-white/10 text-gray-300 hover:bg-white/10 transition-colors"
                   title="تنظیم مجدد دوربین"
                   aria-label="بازنشانی زاویه دوربین"
                 >

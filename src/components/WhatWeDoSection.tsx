@@ -9,17 +9,17 @@ export function WhatWeDoSection({ onSelectService }: WhatWeDoSectionProps) {
   const getIcon = (name: string) => {
     switch (name) {
       case 'PenTool':
-        return <PenTool className="w-5 h-5 text-gray-800" />;
+        return <PenTool className="w-5 h-5 text-[#635BFF]" />;
       case 'Palette':
-        return <Palette className="w-5 h-5 text-gray-800" />;
+        return <Palette className="w-5 h-5 text-[#635BFF]" />;
       case 'Cpu':
-        return <Cpu className="w-5 h-5 text-gray-800" />;
+        return <Cpu className="w-5 h-5 text-[#635BFF]" />;
       case 'Headphones':
-        return <Headphones className="w-5 h-5 text-gray-800" />;
+        return <Headphones className="w-5 h-5 text-[#635BFF]" />;
       case 'Gamepad2':
-        return <Gamepad2 className="w-5 h-5 text-gray-800" />;
+        return <Gamepad2 className="w-5 h-5 text-[#635BFF]" />;
       default:
-        return <PenTool className="w-5 h-5 text-gray-800" />;
+        return <PenTool className="w-5 h-5 text-[#635BFF]" />;
     }
   };
 
@@ -29,10 +29,10 @@ export function WhatWeDoSection({ onSelectService }: WhatWeDoSectionProps) {
         
         {/* Header */}
         <div>
-          <div className="text-[10px] font-extrabold uppercase tracking-widest text-gray-400 mb-2">
+          <div className="text-[10px] font-extrabold uppercase tracking-widest text-[#635BFF] mb-2">
             خدمات ما
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#121417] tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
             توسعه جامع و سرتاسری بازی‌ها
           </h2>
         </div>
@@ -43,18 +43,18 @@ export function WhatWeDoSection({ onSelectService }: WhatWeDoSectionProps) {
             <div
               key={service.id}
               onClick={() => onSelectService(service)}
-              className="group bg-[#f2f4f7]/80 hover:bg-white rounded-xl border border-gray-200/80 p-5 transition-all duration-300 hover:shadow-md cursor-pointer flex flex-col justify-between space-y-4"
+              className="group bg-[#121418] hover:bg-[#181b22] rounded-xl border border-white/10 p-5 transition-all duration-300 hover:border-white/20 hover:shadow-xl cursor-pointer flex flex-col justify-between space-y-4"
             >
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-lg bg-white border border-gray-200 flex items-center justify-center group-hover:border-black group-hover:scale-105 transition-all shadow-2xs">
+                <div className="w-10 h-10 rounded-lg bg-[#181b22] border border-white/10 flex items-center justify-center group-hover:border-[#635BFF] group-hover:scale-105 transition-all shadow-xs">
                   {getIcon(service.iconName)}
                 </div>
-                <h3 className="text-xs font-extrabold text-[#121417] leading-tight group-hover:text-black">
+                <h3 className="text-xs font-extrabold text-white leading-tight group-hover:text-[#635BFF] transition-colors">
                   {service.title}
                 </h3>
               </div>
               
-              <p className="text-xs text-[#5c6574] leading-relaxed font-medium">
+              <p className="text-xs text-[#94a3b8] leading-relaxed font-medium">
                 {service.description}
               </p>
             </div>

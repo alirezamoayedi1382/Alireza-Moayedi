@@ -125,8 +125,8 @@ export function Modals({
 
       {/* 2. Game Detail Modal */}
       {selectedGame && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-md animate-in fade-in">
-          <div className="relative w-full max-w-2xl bg-white text-[#121417] rounded-2xl overflow-hidden shadow-2xl border border-gray-200">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-in fade-in">
+          <div className="relative w-full max-w-2xl bg-[#121418] text-white rounded-2xl overflow-hidden shadow-2xl border border-white/10">
             {/* Header Image */}
             <div className="relative h-64 sm:h-72 bg-black">
               <img
@@ -142,7 +142,7 @@ export function Modals({
               >
                 <X className="w-5 h-5" />
               </button>
-              <div className="absolute bottom-4 right-6 bg-black/80 backdrop-blur-xs text-white text-[10px] font-extrabold uppercase px-3 py-1 rounded-full">
+              <div className="absolute bottom-4 right-6 bg-black/80 backdrop-blur-xs text-white text-[10px] font-extrabold uppercase px-3 py-1 rounded-full border border-white/10">
                 {selectedGame.genre}
               </div>
             </div>
@@ -150,21 +150,21 @@ export function Modals({
             {/* Content Body */}
             <div className="p-6 sm:p-8 space-y-6">
               <div>
-                <h3 className="text-2xl font-extrabold text-[#121417]">
+                <h3 className="text-2xl font-extrabold text-white">
                   {selectedGame.title}
                 </h3>
-                <p className="text-xs sm:text-sm text-[#5c6574] leading-relaxed font-medium mt-2">
+                <p className="text-xs sm:text-sm text-[#94a3b8] leading-relaxed font-medium mt-2">
                   {selectedGame.description}
                 </p>
               </div>
 
               {/* Game Metadata Table */}
-              <div className="grid grid-cols-3 gap-4 p-4 rounded-xl bg-gray-50 border border-gray-100 text-xs">
+              <div className="grid grid-cols-3 gap-4 p-4 rounded-xl bg-[#181b21] border border-white/10 text-xs">
                 <div>
                   <div className="text-[10px] font-bold text-gray-400">
                     پلتفرم‌ها
                   </div>
-                  <div className="font-extrabold text-gray-800 mt-1">
+                  <div className="font-extrabold text-white mt-1">
                     {selectedGame.platforms?.join('، ') || 'PC, PS5, XBOX'}
                   </div>
                 </div>
@@ -173,7 +173,7 @@ export function Modals({
                   <div className="text-[10px] font-bold text-gray-400">
                     بازیکنان
                   </div>
-                  <div className="font-extrabold text-gray-800 mt-1">
+                  <div className="font-extrabold text-white mt-1">
                     {selectedGame.players || '+۲M'}
                   </div>
                 </div>
@@ -182,7 +182,7 @@ export function Modals({
                   <div className="text-[10px] font-bold text-gray-400">
                     تاریخ انتشار
                   </div>
-                  <div className="font-extrabold text-gray-800 mt-1">
+                  <div className="font-extrabold text-white mt-1">
                     {selectedGame.releaseDate || '۲۰۲۴'}
                   </div>
                 </div>
@@ -191,7 +191,7 @@ export function Modals({
               <div className="flex justify-end gap-3 pt-2">
                 <button
                   onClick={onCloseGame}
-                  className="bg-[#121417] text-white text-xs font-bold px-6 py-2.5 rounded-full hover:bg-black transition-all"
+                  className="bg-[#635BFF] text-white text-xs font-bold px-6 py-2.5 rounded-full hover:bg-[#5248ff] transition-all"
                 >
                   بستن
                 </button>
@@ -203,47 +203,47 @@ export function Modals({
 
       {/* 3. Service Modal */}
       {selectedService && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-md animate-in fade-in">
-          <div className="relative w-full max-w-lg bg-white text-[#121417] rounded-2xl p-6 sm:p-8 shadow-2xl border border-gray-200 space-y-6">
-            <div className="flex items-center justify-between border-b border-gray-100 pb-4">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-in fade-in">
+          <div className="relative w-full max-w-lg bg-[#121418] text-white rounded-2xl p-6 sm:p-8 shadow-2xl border border-white/10 space-y-6">
+            <div className="flex items-center justify-between border-b border-white/10 pb-4">
               <div className="flex items-center gap-3">
-                <div className="w-9 h-9 rounded-lg bg-black text-white flex items-center justify-center">
+                <div className="w-9 h-9 rounded-lg bg-[#635BFF] text-white flex items-center justify-center">
                   <Gamepad2 className="w-5 h-5" />
                 </div>
                 <div>
                   <div className="text-[10px] font-bold text-gray-400">
                     خلاصه‌ای از خدمت
                   </div>
-                  <h3 className="text-lg font-extrabold text-[#121417]">
+                  <h3 className="text-lg font-extrabold text-white">
                     {selectedService.title}
                   </h3>
                 </div>
               </div>
               <button
                 onClick={onCloseService}
-                className="p-1.5 rounded-full text-gray-400 hover:text-black hover:bg-gray-100 transition-colors"
+                className="p-1.5 rounded-full text-gray-400 hover:text-white hover:bg-white/10 transition-colors"
                 aria-label="بستن"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
-            <p className="text-xs sm:text-sm text-[#5c6574] leading-relaxed font-medium">
+            <p className="text-xs sm:text-sm text-[#94a3b8] leading-relaxed font-medium">
               {selectedService.description}
             </p>
 
-            <div className="space-y-2 bg-gray-50 p-4 rounded-xl border border-gray-100 text-xs font-semibold">
-              <div className="text-[10px] font-extrabold text-gray-400">دستاوردهای ما برای پروژه شما</div>
-              <div className="flex items-center gap-2 text-gray-700">
-                <Check className="w-4 h-4 text-emerald-600 shrink-0" />
+            <div className="space-y-2 bg-[#181b21] p-4 rounded-xl border border-white/10 text-xs font-semibold">
+              <div className="text-[10px] font-extrabold text-[#635BFF]">دستاوردهای ما برای پروژه شما</div>
+              <div className="flex items-center gap-2 text-gray-300">
+                <Check className="w-4 h-4 text-emerald-400 shrink-0" />
                 <span>معماری سفارشی بازی و یکپارچه‌سازی خط تولید</span>
               </div>
-              <div className="flex items-center gap-2 text-gray-700">
-                <Check className="w-4 h-4 text-emerald-600 shrink-0" />
+              <div className="flex items-center gap-2 text-gray-300">
+                <Check className="w-4 h-4 text-emerald-400 shrink-0" />
                 <span>توسعه سطح AAA با موتورهای بازی‌سازی Unreal Engine 5 و Unity</span>
               </div>
-              <div className="flex items-center gap-2 text-gray-700">
-                <Check className="w-4 h-4 text-emerald-600 shrink-0" />
+              <div className="flex items-center gap-2 text-gray-300">
+                <Check className="w-4 h-4 text-emerald-400 shrink-0" />
                 <span>بهینه‌سازی چندپلتفرمی و تنظیم بالاترین عملکرد و کارایی</span>
               </div>
             </div>
@@ -251,7 +251,7 @@ export function Modals({
             <div className="flex justify-end pt-2">
               <button
                 onClick={onCloseService}
-                className="bg-[#121417] text-white text-xs font-bold px-6 py-2.5 rounded-full hover:bg-black transition-all"
+                className="bg-[#635BFF] text-white text-xs font-bold px-6 py-2.5 rounded-full hover:bg-[#5248ff] transition-all"
               >
                 متوجه شدم
               </button>
@@ -262,14 +262,14 @@ export function Modals({
 
       {/* 4. Let's Build / Contact Form Modal */}
       {(letBuildOpen || contactOpen) && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-md animate-in fade-in">
-          <div className="relative w-full max-w-lg bg-white text-[#121417] rounded-2xl p-6 sm:p-8 shadow-2xl border border-gray-200 space-y-6">
-            <div className="flex items-center justify-between border-b border-gray-100 pb-4">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-in fade-in">
+          <div className="relative w-full max-w-lg bg-[#121418] text-white rounded-2xl p-6 sm:p-8 shadow-2xl border border-white/10 space-y-6">
+            <div className="flex items-center justify-between border-b border-white/10 pb-4">
               <div>
                 <div className="text-[10px] font-extrabold uppercase tracking-wider text-[#635BFF]">
                   با هم خلق کنیم
                 </div>
-                <h3 className="text-xl font-extrabold text-[#121417] mt-0.5">
+                <h3 className="text-xl font-extrabold text-white mt-0.5">
                   پروژه بازی خود را شروع کنید
                 </h3>
               </div>
@@ -278,7 +278,7 @@ export function Modals({
                   onCloseLetBuild();
                   onCloseContact();
                 }}
-                className="p-1.5 rounded-full text-gray-400 hover:text-black hover:bg-gray-100 transition-colors"
+                className="p-1.5 rounded-full text-gray-400 hover:text-white hover:bg-white/10 transition-colors"
                 aria-label="بستن"
               >
                 <X className="w-5 h-5" />
@@ -287,44 +287,44 @@ export function Modals({
 
             {submitted ? (
               <div className="py-8 text-center space-y-3">
-                <div className="w-12 h-12 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto">
+                <div className="w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto border border-emerald-500/30">
                   <Check className="w-6 h-6" />
                 </div>
-                <h4 className="text-lg font-extrabold text-gray-900">درخواست شما دریافت شد!</h4>
-                <p className="text-xs text-gray-500 max-w-xs mx-auto leading-relaxed">
+                <h4 className="text-lg font-extrabold text-white">درخواست شما دریافت شد!</h4>
+                <p className="text-xs text-gray-400 max-w-xs mx-auto leading-relaxed">
                   با تشکر از ارتباط شما با استودیوی پیکسل‌فورج. تهیه‌کننده ما ظرف ۲۴ ساعت آینده با شما تماس خواهد گرفت.
                 </p>
               </div>
             ) : (
               <form onSubmit={handleSubmitForm} className="space-y-4 text-xs">
                 <div>
-                  <label className="block font-bold text-gray-700 mb-1">نام شما</label>
+                  <label className="block font-bold text-gray-300 mb-1">نام شما</label>
                   <input
                     type="text"
                     required
                     placeholder="مثال: علی محمدی"
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:border-black transition-colors"
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-[#181b21] border border-white/10 text-white focus:outline-none focus:border-[#635BFF] transition-colors"
                   />
                 </div>
 
                 <div>
-                  <label className="block font-bold text-gray-700 mb-1">آدرس ایمیل</label>
+                  <label className="block font-bold text-gray-300 mb-1">آدرس ایمیل</label>
                   <input
                     type="email"
                     required
                     placeholder="example@studio.com"
                     dir="ltr"
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:border-black transition-colors text-right"
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-[#181b21] border border-white/10 text-white focus:outline-none focus:border-[#635BFF] transition-colors text-right"
                   />
                 </div>
 
                 <div>
-                  <label className="block font-bold text-gray-700 mb-1">جزئیات و شرح پروژه</label>
+                  <label className="block font-bold text-gray-300 mb-1">جزئیات و شرح پروژه</label>
                   <textarea
                     rows={3}
                     required
                     placeholder="درباره مفهوم بازی، پلتفرم مقصد و زمان‌بندی مد نظر خود توضیح دهید..."
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:border-black transition-colors resize-none"
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-[#181b21] border border-white/10 text-white focus:outline-none focus:border-[#635BFF] transition-colors resize-none"
                   />
                 </div>
 
@@ -335,13 +335,13 @@ export function Modals({
                       onCloseLetBuild();
                       onCloseContact();
                     }}
-                    className="px-5 py-2.5 font-bold text-gray-500 hover:text-black"
+                    className="px-5 py-2.5 font-bold text-gray-400 hover:text-white"
                   >
                     انصراف
                   </button>
                   <button
                     type="submit"
-                    className="bg-[#121417] text-white font-bold px-6 py-2.5 rounded-full hover:bg-black transition-all shadow-xs"
+                    className="bg-[#635BFF] text-white font-bold px-6 py-2.5 rounded-full hover:bg-[#5248ff] transition-all shadow-lg hover:shadow-[#635BFF]/25"
                   >
                     ارسال پیام
                   </button>
