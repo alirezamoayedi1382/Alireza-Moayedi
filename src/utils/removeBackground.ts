@@ -38,15 +38,15 @@ export function removeImageBackground(imageSrc: string, colorThreshold = 210): P
         const visited = new Uint8Array(width * height);
         const queue: number[] = [];
 
-        // Helper to check if a pixel is background-like (light / near-white / pale gray)
+        // Helper to check if a pixel is background-like (strictly neutral white or pale light gray canvas)
         const isLightPixel = (idx: number): boolean => {
           const r = data[idx];
           const g = data[idx + 1];
           const b = data[idx + 2];
           const avg = (r + g + b) / 3;
           const maxDiff = Math.max(Math.abs(r - g), Math.abs(g - b), Math.abs(r - b));
-          // Pale/light gray or white background check
-          return avg >= colorThreshold && maxDiff < 30;
+          // Neutral white/light gray background check: high RGB and virtually no color saturation
+          return avg >= 215 && r >= 200 && g >= 200 && b >= 200 && maxDiff < 18;
         };
 
         // Add top and bottom border pixels to queue
@@ -106,14 +106,15 @@ export function removeImageBackground(imageSrc: string, colorThreshold = 210): P
               if (isLightPixel(nIdx)) {
                 queue.push(nPos);
               } else {
-                // Feather edge pixels
+                // Feather edge pixels only if they are neutral white/gray canvas transition pixels
                 const r = data[nIdx];
                 const g = data[nIdx + 1];
                 const b = data[nIdx + 2];
                 const avg = (r + g + b) / 3;
-                if (avg > 180) {
-                  const alphaFactor = (255 - avg) / (255 - 180);
-                  data[nIdx + 3] = Math.floor(255 * Math.max(0, Math.min(1, alphaFactor * 0.9)));
+                const maxDiff = Math.max(Math.abs(r - g), Math.abs(g - b), Math.abs(r - b));
+                if (avg > 210 && maxDiff < 18) {
+                  const alphaFactor = (255 - avg) / (255 - 210);
+                  data[nIdx + 3] = Math.floor(255 * Math.max(0, Math.min(1, alphaFactor)));
                 }
               }
             }

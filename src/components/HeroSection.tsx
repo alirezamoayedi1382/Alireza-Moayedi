@@ -193,39 +193,16 @@ export function HeroSection({ onOpenShowreel, onExploreGames }: HeroSectionProps
                   transform: `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(${isZoomed ? 1.25 : 1.08})`,
                 }}
               >
-                {/* Layer 1: 3D Grid Floor & Shadow (Z: -120px) */}
+                {/* Soft Contact Shadow */}
                 <div 
-                  className="absolute inset-10 rounded-full border border-dashed border-white/10 flex items-center justify-center pointer-events-none"
-                  style={{ transform: 'translateZ(-120px) rotateX(70deg)', transformStyle: 'preserve-3d' }}
-                >
-                  {/* Concentric 3D Orbit Lines */}
-                  <div className="w-full h-full rounded-full border border-white/10 animate-[spin_30s_linear_infinite]" />
-                  <div 
-                    className="absolute w-3/4 h-3/4 rounded-full border border-dashed opacity-50"
-                    style={{ borderColor: currentWorld.accentColor }}
-                  />
-                  {/* Real-time Cast Contact Shadow */}
-                  <div 
-                    className="absolute w-3/5 h-3/5 rounded-full bg-black/80 blur-xl transition-all duration-300"
-                    style={{ transform: 'scale(1.2)' }}
-                  />
-                </div>
+                  className="absolute w-2/3 h-2/3 rounded-full bg-black/60 blur-2xl pointer-events-none transition-all duration-300"
+                  style={{ transform: 'translateZ(-40px) scale(1.1)' }}
+                />
 
-                {/* Layer 2: Rotating 3D HUD Halo Ring (Z: -60px) */}
+                {/* Main 3D Rendered Island Image (Z: 30px) */}
                 <div 
-                  className="absolute w-72 h-72 rounded-full border border-white/10 pointer-events-none flex items-center justify-center"
-                  style={{ transform: 'translateZ(-60px)', transformStyle: 'preserve-3d' }}
-                >
-                  <div 
-                    className="w-full h-full rounded-full border-2 border-t-transparent border-b-transparent animate-[spin_20s_linear_infinite]"
-                    style={{ borderColor: `${currentWorld.accentColor}60` }}
-                  />
-                </div>
-
-                {/* Layer 3: Main 3D Rendered Island Image (Z: 30px) */}
-                <div 
-                  className="relative w-full h-full flex items-center justify-center transition-transform duration-500"
-                  style={{ transform: 'translateZ(30px) translateY(-10px)', transformStyle: 'preserve-3d' }}
+                  className="relative w-full h-full flex items-center justify-center"
+                  style={{ transform: 'translateZ(30px)', transformStyle: 'preserve-3d' }}
                 >
                   <img
                     key={currentWorld.id}
@@ -235,7 +212,7 @@ export function HeroSection({ onOpenShowreel, onExploreGames }: HeroSectionProps
                     style={{
                       filter: `drop-shadow(0 25px 35px ${currentWorld.accentColor}50) drop-shadow(0 10px 15px rgba(0,0,0,0.8)) contrast(1.12) brightness(1.06)`,
                     }}
-                    className="w-full h-full object-contain transition-all duration-500 ease-in-out scale-110 animate-[bounce_6s_infinite_ease-in-out]"
+                    className="w-full h-full object-contain transition-all duration-500 ease-in-out scale-110"
                   />
                 </div>
               </div>
