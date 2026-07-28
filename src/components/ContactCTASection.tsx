@@ -69,7 +69,7 @@ export function ContactCTASection({ onOpenContact }: ContactCTASectionProps) {
                   src={STUDIO_IMAGES.ctaIsland}
                   alt="المان سه بعدی پیکسل‌فورج"
                   referrerPolicy="no-referrer"
-                  className="w-full h-full object-contain drop-shadow-md select-none"
+                  className="w-full h-full object-contain drop-shadow-md select-none mix-blend-multiply"
                 />
               </div>
 

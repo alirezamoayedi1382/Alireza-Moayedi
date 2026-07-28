@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { ArrowLeft, Play, RotateCcw, ZoomIn, ZoomOut, Pause, RefreshCw, Sparkles, ChevronRight, ChevronLeft, Camera, Compass } from 'lucide-react';
 import { HERO_STATS, HERO_3D_WORLDS } from '../data/pixelforgeData';
+import { removeImageBackground } from '../utils/removeBackground';
 
 interface HeroSectionProps {
   onOpenShowreel: () => void;
@@ -14,9 +15,28 @@ export function HeroSection({ onOpenShowreel, onExploreGames }: HeroSectionProps
   const [isZoomed, setIsZoomed] = useState(false);
   const [customRotate, setCustomRotate] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
+  const [transparentImageMap, setTransparentImageMap] = useState<Record<string, string>>({});
   const dragStartRef = useRef({ x: 0, y: 0 });
 
   const currentWorld = HERO_3D_WORLDS[activeDot] || HERO_3D_WORLDS[0];
+
+  // Pre-process and convert all 3D island images to 100% transparent PNGs
+  useEffect(() => {
+    let isMounted = true;
+    HERO_3D_WORLDS.forEach((world) => {
+      removeImageBackground(world.image, 222).then((transparentUrl) => {
+        if (isMounted) {
+          setTransparentImageMap((prev) => ({
+            ...prev,
+            [world.id]: transparentUrl,
+          }));
+        }
+      });
+    });
+    return () => {
+      isMounted = false;
+    };
+  }, []);
 
   // Auto-switch worlds every 5 seconds if autoRotate is enabled
   useEffect(() => {
@@ -180,10 +200,10 @@ export function HeroSection({ onOpenShowreel, onExploreGames }: HeroSectionProps
                 >
                   <img
                     key={currentWorld.id}
-                    src={currentWorld.image}
+                    src={transparentImageMap[currentWorld.id] || currentWorld.image}
                     alt={currentWorld.title}
                     referrerPolicy="no-referrer"
-                    className="w-full h-full object-contain drop-shadow-2xl transition-opacity duration-500 ease-in-out"
+                    className="w-full h-full object-contain drop-shadow-2xl transition-all duration-500 ease-in-out"
                   />
                 </div>
 
