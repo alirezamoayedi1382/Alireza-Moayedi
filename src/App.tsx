@@ -27,7 +27,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#f8f9fa] text-[#121417] flex flex-col font-['Plus_Jakarta_Sans',sans-serif] selection:bg-black selection:text-white">
+    <div className="min-h-screen bg-[#f8f9fa] text-[#121417] flex flex-col font-['Vazirmatn','Plus_Jakarta_Sans',sans-serif] selection:bg-black selection:text-white">
       
       {/* 1. Header / Navigation Bar */}
       <Navbar

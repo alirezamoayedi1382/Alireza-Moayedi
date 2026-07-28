@@ -1,4 +1,4 @@
-import { ArrowRight } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 import { SELECTED_TITLES, GameTitle } from '../data/pixelforgeData';
 
 interface SelectedTitlesSectionProps {
@@ -15,20 +15,20 @@ export function SelectedTitlesSection({ onSelectGame, onViewAllGames }: Selected
         <div className="flex items-end justify-between border-b border-gray-200/80 pb-4">
           <div>
             <div className="text-[10px] font-extrabold uppercase tracking-widest text-gray-400 mb-2">
-              OUR GAMES
+              بازی‌های ما
             </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-[#121417] tracking-tight">
-              Selected titles
+              عناوین برگزیده
             </h2>
           </div>
 
           <button
             onClick={onViewAllGames}
             id="view-all-games-btn"
-            className="group inline-flex items-center gap-1.5 text-xs font-bold text-[#121417] hover:text-black tracking-wider transition-colors pb-1"
+            className="group inline-flex items-center gap-1.5 text-xs font-bold text-[#121417] hover:text-black transition-colors pb-1"
           >
-            <span>VIEW ALL GAMES</span>
-            <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+            <span>مشاهده همه بازی‌ها</span>
+            <ArrowLeft className="w-3.5 h-3.5 transition-transform group-hover:-translate-x-1" />
           </button>
         </div>
 

@@ -1,4 +1,4 @@
-import { ArrowRight, Quote } from 'lucide-react';
+import { ArrowLeft, Quote } from 'lucide-react';
 import { STUDIO_IMAGES } from '../data/pixelforgeData';
 
 interface OurStudioSectionProps {
@@ -11,28 +11,28 @@ export function OurStudioSection({ onJoinTeam }: OurStudioSectionProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           
-          {/* Left Text Block */}
+          {/* Text Block */}
           <div className="lg:col-span-4 space-y-5">
             <div className="text-[10px] font-extrabold uppercase tracking-widest text-gray-400">
-              OUR STUDIO
+              استودیوی ما
             </div>
 
             <h2 className="text-3xl sm:text-4xl font-extrabold text-[#121417] tracking-tight leading-tight">
-              A team of creators and dreamers
+              تیمی از خالقان و رویاپردازان
             </h2>
 
             <p className="text-xs sm:text-sm text-[#5c6574] leading-relaxed font-medium">
-              We're gamers, artists, engineers, and storytellers passionate about creating unforgettable worlds.
+              ما گیمرها، هنرمندان، مهندسان و راویانی هستیم که با اشتیاق، جهان‌های فراموش‌نشدنی خلق می‌کنیم.
             </p>
 
             <div className="pt-2">
               <button
                 onClick={onJoinTeam}
                 id="join-team-btn"
-                className="group inline-flex items-center gap-2 text-xs font-bold text-[#121417] hover:text-black tracking-wider transition-colors"
+                className="group inline-flex items-center gap-2 text-xs font-bold text-[#121417] hover:text-black transition-colors"
               >
-                <span>JOIN OUR TEAM</span>
-                <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+                <span>پیوستن به تیم ما</span>
+                <ArrowLeft className="w-3.5 h-3.5 transition-transform group-hover:-translate-x-1" />
               </button>
             </div>
           </div>
@@ -44,7 +44,7 @@ export function OurStudioSection({ onJoinTeam }: OurStudioSectionProps) {
             <div className="rounded-xl overflow-hidden aspect-4/3 bg-gray-200 border border-gray-200 shadow-2xs group">
               <img
                 src={STUDIO_IMAGES.team1}
-                alt="PIXELFORGE studio workspace"
+                alt="فضای کاری استودیوی پیکسل‌فورج"
                 referrerPolicy="no-referrer"
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
@@ -54,7 +54,7 @@ export function OurStudioSection({ onJoinTeam }: OurStudioSectionProps) {
             <div className="rounded-xl overflow-hidden aspect-4/3 bg-gray-200 border border-gray-200 shadow-2xs group">
               <img
                 src={STUDIO_IMAGES.team2}
-                alt="PIXELFORGE team collaboration"
+                alt="همکاری اعضای تیم پیکسل‌فورج"
                 referrerPolicy="no-referrer"
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
@@ -64,7 +64,7 @@ export function OurStudioSection({ onJoinTeam }: OurStudioSectionProps) {
             <div className="rounded-xl overflow-hidden aspect-4/3 bg-gray-200 border border-gray-200 shadow-2xs group">
               <img
                 src={STUDIO_IMAGES.team3}
-                alt="PIXELFORGE lounge"
+                alt="استراحتگاه استودیوی پیکسل‌فورج"
                 referrerPolicy="no-referrer"
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
@@ -75,11 +75,11 @@ export function OurStudioSection({ onJoinTeam }: OurStudioSectionProps) {
               <Quote className="w-6 h-6 text-gray-400 rotate-180" />
 
               <p className="text-xs font-semibold leading-relaxed text-gray-200">
-                Great games come from collaboration, curiosity, and a love for players.
+                بازی‌های فوق‌العاده حاصل همکاری، کنجکاوی و عشق به بازیکنان است.
               </p>
 
               <div className="text-[10px] font-extrabold uppercase tracking-widest text-gray-400">
-                PIXELFORGE CULTURE
+                فرهنگ پیکسل‌فورج
               </div>
             </div>
 

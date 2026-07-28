@@ -26,10 +26,10 @@ export function OurProcessSection() {
         {/* Header */}
         <div>
           <div className="text-[10px] font-extrabold uppercase tracking-widest text-gray-400 mb-2">
-            OUR PROCESS
+            فرایند کاری ما
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#121417] tracking-tight">
-            How we build games
+            نحوه ساخت بازی‌ها در پیکسل‌فورج
           </h2>
         </div>
 
@@ -50,10 +50,10 @@ export function OurProcessSection() {
 
                 {/* Step number and title */}
                 <div className="space-y-1">
-                  <div className="text-[11px] font-extrabold text-[#121417] tracking-wider uppercase">
-                    {stepItem.step}
+                  <div className="text-[11px] font-extrabold text-[#121417]">
+                    مرحله {stepItem.step}
                   </div>
-                  <div className="text-xs font-extrabold text-[#121417] tracking-wider uppercase">
+                  <div className="text-xs font-extrabold text-[#121417]">
                     {stepItem.title}
                   </div>
                 </div>

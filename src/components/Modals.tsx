@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Check, Gamepad2, Play, Volume2, VolumeX, X } from 'lucide-react';
 import { GameTitle, ServiceItem } from '../data/pixelforgeData';
 
@@ -55,13 +55,14 @@ export function Modals({
             <div className="flex items-center justify-between px-6 py-4 border-b border-gray-800">
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-red-500 animate-ping" />
-                <span className="text-xs font-extrabold uppercase tracking-widest text-gray-300">
-                  PIXELFORGE STUDIO SHOWREEL 2024
+                <span className="text-xs font-extrabold uppercase tracking-wider text-gray-300">
+                  ویدیوی استودیوی پیکسل‌فورج ۲۰۲۴
                 </span>
               </div>
               <button
                 onClick={onCloseShowreel}
                 className="p-1 rounded-full text-gray-400 hover:text-white hover:bg-white/10 transition-colors"
+                aria-label="بستن"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -71,7 +72,7 @@ export function Modals({
             <div className="relative aspect-16/9 bg-black flex items-center justify-center group overflow-hidden">
               <img
                 src="/src/assets/images/elden_realms_featured_1785236873961.jpg"
-                alt="Showreel preview"
+                alt="پیش‌نمایش ویدیو"
                 referrerPolicy="no-referrer"
                 className={`w-full h-full object-cover transition-all duration-700 ${
                   isPlaying ? 'scale-105 opacity-90' : 'scale-100 opacity-60'
@@ -82,6 +83,7 @@ export function Modals({
               <button
                 onClick={() => setIsPlaying(!isPlaying)}
                 className="absolute w-16 h-16 rounded-full bg-white/90 text-black flex items-center justify-center shadow-xl hover:scale-110 transition-transform"
+                aria-label={isPlaying ? 'توقف' : 'پخش'}
               >
                 {isPlaying ? (
                   <div className="flex gap-1">
@@ -89,7 +91,7 @@ export function Modals({
                     <div className="w-1.5 h-5 bg-black rounded-xs" />
                   </div>
                 ) : (
-                  <Play className="w-6 h-6 fill-current text-black translate-x-0.5" />
+                  <Play className="w-6 h-6 fill-current text-black -translate-x-0.5 rotate-180" />
                 )}
               </button>
 
@@ -100,10 +102,10 @@ export function Modals({
                     onClick={() => setIsPlaying(!isPlaying)}
                     className="hover:text-white text-gray-300"
                   >
-                    {isPlaying ? 'PAUSE' : 'PLAY'}
+                    {isPlaying ? 'توقف' : 'پخش'}
                   </button>
                   <span className="text-gray-500">|</span>
-                  <span className="text-gray-300">01:24 / 03:45</span>
+                  <span className="text-gray-300" dir="ltr">01:24 / 03:45</span>
                 </div>
 
                 <div className="flex items-center gap-4">
@@ -112,7 +114,7 @@ export function Modals({
                     className="hover:text-white text-gray-300 flex items-center gap-1.5"
                   >
                     {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
-                    <span>{isMuted ? 'MUTED' : '4K ULTRA HD'}</span>
+                    <span>{isMuted ? 'بی‌صدا' : 'کیفیت 4K ULTRA HD'}</span>
                   </button>
                 </div>
               </div>
@@ -135,11 +137,12 @@ export function Modals({
               />
               <button
                 onClick={onCloseGame}
-                className="absolute top-4 right-4 p-2 rounded-full bg-black/60 text-white hover:bg-black transition-colors"
+                className="absolute top-4 left-4 p-2 rounded-full bg-black/60 text-white hover:bg-black transition-colors"
+                aria-label="بستن"
               >
                 <X className="w-5 h-5" />
               </button>
-              <div className="absolute bottom-4 left-6 bg-black/80 backdrop-blur-xs text-white text-[10px] font-extrabold uppercase px-3 py-1 rounded-full">
+              <div className="absolute bottom-4 right-6 bg-black/80 backdrop-blur-xs text-white text-[10px] font-extrabold uppercase px-3 py-1 rounded-full">
                 {selectedGame.genre}
               </div>
             </div>
@@ -158,29 +161,29 @@ export function Modals({
               {/* Game Metadata Table */}
               <div className="grid grid-cols-3 gap-4 p-4 rounded-xl bg-gray-50 border border-gray-100 text-xs">
                 <div>
-                  <div className="text-[10px] font-bold text-gray-400 uppercase">
-                    PLATFORMS
+                  <div className="text-[10px] font-bold text-gray-400">
+                    پلتفرم‌ها
                   </div>
                   <div className="font-extrabold text-gray-800 mt-1">
-                    {selectedGame.platforms?.join(', ') || 'PC, PS5, XBOX'}
+                    {selectedGame.platforms?.join('، ') || 'PC, PS5, XBOX'}
                   </div>
                 </div>
 
                 <div>
-                  <div className="text-[10px] font-bold text-gray-400 uppercase">
-                    PLAYERS
+                  <div className="text-[10px] font-bold text-gray-400">
+                    بازیکنان
                   </div>
                   <div className="font-extrabold text-gray-800 mt-1">
-                    {selectedGame.players || '2M+'}
+                    {selectedGame.players || '+۲M'}
                   </div>
                 </div>
 
                 <div>
-                  <div className="text-[10px] font-bold text-gray-400 uppercase">
-                    RELEASE
+                  <div className="text-[10px] font-bold text-gray-400">
+                    تاریخ انتشار
                   </div>
                   <div className="font-extrabold text-gray-800 mt-1">
-                    {selectedGame.releaseDate || '2024'}
+                    {selectedGame.releaseDate || '۲۰۲۴'}
                   </div>
                 </div>
               </div>
@@ -190,7 +193,7 @@ export function Modals({
                   onClick={onCloseGame}
                   className="bg-[#121417] text-white text-xs font-bold px-6 py-2.5 rounded-full hover:bg-black transition-all"
                 >
-                  CLOSE
+                  بستن
                 </button>
               </div>
             </div>
@@ -208,8 +211,8 @@ export function Modals({
                   <Gamepad2 className="w-5 h-5" />
                 </div>
                 <div>
-                  <div className="text-[10px] font-bold text-gray-400 uppercase">
-                    SERVICE OVERVIEW
+                  <div className="text-[10px] font-bold text-gray-400">
+                    خلاصه‌ای از خدمت
                   </div>
                   <h3 className="text-lg font-extrabold text-[#121417]">
                     {selectedService.title}
@@ -219,6 +222,7 @@ export function Modals({
               <button
                 onClick={onCloseService}
                 className="p-1.5 rounded-full text-gray-400 hover:text-black hover:bg-gray-100 transition-colors"
+                aria-label="بستن"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -229,18 +233,18 @@ export function Modals({
             </p>
 
             <div className="space-y-2 bg-gray-50 p-4 rounded-xl border border-gray-100 text-xs font-semibold">
-              <div className="text-[10px] font-extrabold uppercase text-gray-400">WHAT WE DELIVER</div>
+              <div className="text-[10px] font-extrabold text-gray-400">دستاوردهای ما برای پروژه شما</div>
               <div className="flex items-center gap-2 text-gray-700">
-                <Check className="w-4 h-4 text-emerald-600" />
-                <span>Custom tailored game architecture & pipeline integration</span>
+                <Check className="w-4 h-4 text-emerald-600 shrink-0" />
+                <span>معماری سفارشی بازی و یکپارچه‌سازی خط تولید</span>
               </div>
               <div className="flex items-center gap-2 text-gray-700">
-                <Check className="w-4 h-4 text-emerald-600" />
-                <span>Unreal Engine 5 & Unity AAA grade development</span>
+                <Check className="w-4 h-4 text-emerald-600 shrink-0" />
+                <span>توسعه سطح AAA با موتورهای بازی‌سازی Unreal Engine 5 و Unity</span>
               </div>
               <div className="flex items-center gap-2 text-gray-700">
-                <Check className="w-4 h-4 text-emerald-600" />
-                <span>Cross-platform optimization and performance tuning</span>
+                <Check className="w-4 h-4 text-emerald-600 shrink-0" />
+                <span>بهینه‌سازی چندپلتفرمی و تنظیم بالاترین عملکرد و کارایی</span>
               </div>
             </div>
 
@@ -249,7 +253,7 @@ export function Modals({
                 onClick={onCloseService}
                 className="bg-[#121417] text-white text-xs font-bold px-6 py-2.5 rounded-full hover:bg-black transition-all"
               >
-                GOT IT
+                متوجه شدم
               </button>
             </div>
           </div>
@@ -262,11 +266,11 @@ export function Modals({
           <div className="relative w-full max-w-lg bg-white text-[#121417] rounded-2xl p-6 sm:p-8 shadow-2xl border border-gray-200 space-y-6">
             <div className="flex items-center justify-between border-b border-gray-100 pb-4">
               <div>
-                <div className="text-[10px] font-extrabold uppercase tracking-widest text-[#635BFF]">
-                  LET'S CREATE TOGETHER
+                <div className="text-[10px] font-extrabold uppercase tracking-wider text-[#635BFF]">
+                  با هم خلق کنیم
                 </div>
                 <h3 className="text-xl font-extrabold text-[#121417] mt-0.5">
-                  Start Your Game Project
+                  پروژه بازی خود را شروع کنید
                 </h3>
               </div>
               <button
@@ -275,6 +279,7 @@ export function Modals({
                   onCloseContact();
                 }}
                 className="p-1.5 rounded-full text-gray-400 hover:text-black hover:bg-gray-100 transition-colors"
+                aria-label="بستن"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -285,39 +290,40 @@ export function Modals({
                 <div className="w-12 h-12 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto">
                   <Check className="w-6 h-6" />
                 </div>
-                <h4 className="text-lg font-extrabold text-gray-900">Inquiry Received!</h4>
-                <p className="text-xs text-gray-500 max-w-xs mx-auto">
-                  Thank you for reaching out to PIXELFORGE. Our studio producer will respond within 24 hours.
+                <h4 className="text-lg font-extrabold text-gray-900">درخواست شما دریافت شد!</h4>
+                <p className="text-xs text-gray-500 max-w-xs mx-auto leading-relaxed">
+                  با تشکر از ارتباط شما با استودیوی پیکسل‌فورج. تهیه‌کننده ما ظرف ۲۴ ساعت آینده با شما تماس خواهد گرفت.
                 </p>
               </div>
             ) : (
               <form onSubmit={handleSubmitForm} className="space-y-4 text-xs">
                 <div>
-                  <label className="block font-bold text-gray-700 mb-1">Your Name</label>
+                  <label className="block font-bold text-gray-700 mb-1">نام شما</label>
                   <input
                     type="text"
                     required
-                    placeholder="Alex Morgan"
+                    placeholder="مثال: علی محمدی"
                     className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:border-black transition-colors"
                   />
                 </div>
 
                 <div>
-                  <label className="block font-bold text-gray-700 mb-1">Email Address</label>
+                  <label className="block font-bold text-gray-700 mb-1">آدرس ایمیل</label>
                   <input
                     type="email"
                     required
-                    placeholder="alex@studio.com"
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:border-black transition-colors"
+                    placeholder="example@studio.com"
+                    dir="ltr"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:border-black transition-colors text-right"
                   />
                 </div>
 
                 <div>
-                  <label className="block font-bold text-gray-700 mb-1">Project Details / Scope</label>
+                  <label className="block font-bold text-gray-700 mb-1">جزئیات و شرح پروژه</label>
                   <textarea
                     rows={3}
                     required
-                    placeholder="Tell us about your game concept, target platform, and timeline..."
+                    placeholder="درباره مفهوم بازی، پلتفرم مقصد و زمان‌بندی مد نظر خود توضیح دهید..."
                     className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:border-black transition-colors resize-none"
                   />
                 </div>
@@ -331,13 +337,13 @@ export function Modals({
                     }}
                     className="px-5 py-2.5 font-bold text-gray-500 hover:text-black"
                   >
-                    Cancel
+                    انصراف
                   </button>
                   <button
                     type="submit"
                     className="bg-[#121417] text-white font-bold px-6 py-2.5 rounded-full hover:bg-black transition-all shadow-xs"
                   >
-                    Send Message
+                    ارسال پیام
                   </button>
                 </div>
               </form>

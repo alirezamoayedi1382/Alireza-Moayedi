@@ -30,10 +30,10 @@ export function WhatWeDoSection({ onSelectService }: WhatWeDoSectionProps) {
         {/* Header */}
         <div>
           <div className="text-[10px] font-extrabold uppercase tracking-widest text-gray-400 mb-2">
-            WHAT WE DO
+            خدمات ما
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#121417] tracking-tight">
-            End-to-end game development
+            توسعه جامع و سرتاسری بازی‌ها
           </h2>
         </div>
 

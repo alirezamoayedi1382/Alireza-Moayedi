@@ -17,56 +17,56 @@ export function Footer() {
                 </svg>
               </div>
               <span className="font-extrabold text-base tracking-tight text-[#121417]">
-                PIXELFORGE
+                پیکسل‌فورج
               </span>
             </a>
-            <p className="text-[11px] text-gray-500 font-medium">
-              Creating world-class games and interactive experiences for global audiences.
+            <p className="text-[11px] text-gray-500 font-medium leading-relaxed">
+              خلق بازی‌های درجه‌یک جهانی و تجربه‌های تعاملی ماندگار برای مخاطبان سراسر جهان.
             </p>
           </div>
 
           {/* Navigation Columns */}
           <div className="col-span-1 md:col-span-2 space-y-3">
-            <div className="text-[10px] font-extrabold uppercase tracking-widest text-black">
-              COMPANY
+            <div className="text-[10px] font-extrabold uppercase tracking-wider text-black">
+              شرکت
             </div>
             <ul className="space-y-2 text-[11px] font-semibold">
-              <li><a href="#studio" className="hover:text-black transition-colors">About</a></li>
-              <li><a href="#careers" className="hover:text-black transition-colors">Careers</a></li>
-              <li><a href="#blog" className="hover:text-black transition-colors">News</a></li>
+              <li><a href="#studio" className="hover:text-black transition-colors">درباره ما</a></li>
+              <li><a href="#careers" className="hover:text-black transition-colors">فرصت‌های شغلی</a></li>
+              <li><a href="#blog" className="hover:text-black transition-colors">اخبار</a></li>
             </ul>
           </div>
 
           <div className="col-span-1 md:col-span-2 space-y-3">
-            <div className="text-[10px] font-extrabold uppercase tracking-widest text-black">
-              SERVICES
+            <div className="text-[10px] font-extrabold uppercase tracking-wider text-black">
+              خدمات
             </div>
             <ul className="space-y-2 text-[11px] font-semibold">
-              <li><a href="#services" className="hover:text-black transition-colors">Game Design</a></li>
-              <li><a href="#services" className="hover:text-black transition-colors">Art & Animation</a></li>
-              <li><a href="#services" className="hover:text-black transition-colors">Engineering</a></li>
+              <li><a href="#services" className="hover:text-black transition-colors">طراحی بازی</a></li>
+              <li><a href="#services" className="hover:text-black transition-colors">هنر و پویانمایی</a></li>
+              <li><a href="#services" className="hover:text-black transition-colors">مهندسی</a></li>
             </ul>
           </div>
 
           <div className="col-span-1 md:col-span-2 space-y-3">
-            <div className="text-[10px] font-extrabold uppercase tracking-widest text-black">
-              RESOURCES
+            <div className="text-[10px] font-extrabold uppercase tracking-wider text-black">
+              منابع
             </div>
             <ul className="space-y-2 text-[11px] font-semibold">
-              <li><a href="#blog" className="hover:text-black transition-colors">Blog</a></li>
-              <li><a href="#press" className="hover:text-black transition-colors">Press Kit</a></li>
-              <li><a href="#contact" className="hover:text-black transition-colors">Contact</a></li>
+              <li><a href="#blog" className="hover:text-black transition-colors">وبلاگ</a></li>
+              <li><a href="#press" className="hover:text-black transition-colors">کیت رسانه‌ای</a></li>
+              <li><a href="#contact" className="hover:text-black transition-colors">تماس</a></li>
             </ul>
           </div>
 
           <div className="col-span-1 md:col-span-2 space-y-3">
-            <div className="text-[10px] font-extrabold uppercase tracking-widest text-black">
-              LEGAL
+            <div className="text-[10px] font-extrabold uppercase tracking-wider text-black">
+              قوانین
             </div>
             <ul className="space-y-2 text-[11px] font-semibold">
-              <li><a href="#privacy" className="hover:text-black transition-colors">Privacy Policy</a></li>
-              <li><a href="#terms" className="hover:text-black transition-colors">Terms of Service</a></li>
-              <li><a href="#cookies" className="hover:text-black transition-colors">Cookies</a></li>
+              <li><a href="#privacy" className="hover:text-black transition-colors">حریم خصوصی</a></li>
+              <li><a href="#terms" className="hover:text-black transition-colors">شرایط استفاده</a></li>
+              <li><a href="#cookies" className="hover:text-black transition-colors">کوکی‌ها</a></li>
             </ul>
           </div>
 
@@ -75,23 +75,23 @@ export function Footer() {
         {/* Bottom Bar with Socials & Copyright */}
         <div className="pt-8 border-t border-gray-200/80 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-[11px] text-gray-500 font-medium">
-            © 2024 PixelForge Studios. All rights reserved.
+            © ۲۰۲۴ استودیو پیکسل‌فورج. تمامی حقوق محفوظ است.
           </p>
 
           <div className="flex items-center gap-4">
-            <span className="text-[10px] font-extrabold uppercase tracking-widest text-black mr-2">
-              FOLLOW US
+            <span className="text-[10px] font-extrabold uppercase text-black ml-2">
+              ما را دنبال کنید:
             </span>
-            <a href="https://twitter.com" target="_blank" rel="noreferrer" className="text-gray-500 hover:text-black transition-colors">
+            <a href="https://twitter.com" target="_blank" rel="noreferrer" className="text-gray-500 hover:text-black transition-colors" aria-label="توییتر">
               <Twitter className="w-4 h-4" />
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="text-gray-500 hover:text-black transition-colors">
+            <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="text-gray-500 hover:text-black transition-colors" aria-label="لینکدین">
               <Linkedin className="w-4 h-4" />
             </a>
-            <a href="https://youtube.com" target="_blank" rel="noreferrer" className="text-gray-500 hover:text-black transition-colors">
+            <a href="https://youtube.com" target="_blank" rel="noreferrer" className="text-gray-500 hover:text-black transition-colors" aria-label="یوتیوب">
               <Youtube className="w-4 h-4" />
             </a>
-            <a href="https://discord.com" target="_blank" rel="noreferrer" className="text-gray-500 hover:text-black transition-colors">
+            <a href="https://discord.com" target="_blank" rel="noreferrer" className="text-gray-500 hover:text-black transition-colors" aria-label="دیسکورد">
               <MessageSquare className="w-4 h-4" />
             </a>
           </div>

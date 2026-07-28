@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ArrowRight, Menu, X } from 'lucide-react';
+import { ArrowLeft, Menu, X } from 'lucide-react';
 
 interface NavbarProps {
   onOpenLetBuild: () => void;
@@ -10,12 +10,12 @@ export function Navbar({ onOpenLetBuild }: NavbarProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navLinks = [
-    { label: 'GAMES', href: '#games' },
-    { label: 'STUDIO', href: '#studio' },
-    { label: 'SERVICES', href: '#services' },
-    { label: 'WORK', href: '#work' },
-    { label: 'CAREERS', href: '#careers' },
-    { label: 'BLOG', href: '#blog' },
+    { label: 'بازی‌ها', href: '#games' },
+    { label: 'استودیو', href: '#studio' },
+    { label: 'خدمات', href: '#services' },
+    { label: 'پروژه‌ها', href: '#work' },
+    { label: 'فرصت‌های شغلی', href: '#careers' },
+    { label: 'وبلاگ', href: '#blog' },
   ];
 
   return (
@@ -29,7 +29,7 @@ export function Navbar({ onOpenLetBuild }: NavbarProps) {
             </svg>
           </div>
           <span className="font-extrabold text-lg tracking-tight text-[#121417]">
-            PIXELFORGE
+            پیکسل‌فورج
           </span>
         </a>
 
@@ -39,7 +39,7 @@ export function Navbar({ onOpenLetBuild }: NavbarProps) {
             <a
               key={link.label}
               href={link.href}
-              className="text-xs font-bold tracking-wider text-[#4a525d] hover:text-black transition-colors py-1"
+              className="text-xs font-bold tracking-wide text-[#4a525d] hover:text-black transition-colors py-1"
             >
               {link.label}
             </a>
@@ -53,8 +53,8 @@ export function Navbar({ onOpenLetBuild }: NavbarProps) {
             id="lets-build-btn"
             className="group relative inline-flex items-center justify-center gap-2 bg-[#121417] text-white text-xs font-bold px-5 py-2.5 rounded-full hover:bg-black transition-all hover:shadow-md active:scale-95"
           >
-            <span>LET'S BUILD</span>
-            <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
+            <span>شروع ساخت بازی</span>
+            <ArrowLeft className="w-3.5 h-3.5 transition-transform group-hover:-translate-x-0.5" />
           </button>
         </div>
 
@@ -62,7 +62,7 @@ export function Navbar({ onOpenLetBuild }: NavbarProps) {
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           className="md:hidden p-2 rounded-lg text-gray-700 hover:bg-gray-200/50"
-          aria-label="Toggle Navigation"
+          aria-label="تغییر وضعیت منو"
         >
           {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
@@ -77,7 +77,7 @@ export function Navbar({ onOpenLetBuild }: NavbarProps) {
                 key={link.label}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-sm font-bold tracking-wider text-gray-700 hover:text-black py-1"
+                className="text-sm font-bold text-gray-700 hover:text-black py-1"
               >
                 {link.label}
               </a>
@@ -91,8 +91,8 @@ export function Navbar({ onOpenLetBuild }: NavbarProps) {
               }}
               className="w-full flex items-center justify-center gap-2 bg-[#121417] text-white text-xs font-bold py-3 rounded-full"
             >
-              <span>LET'S BUILD</span>
-              <ArrowRight className="w-3.5 h-3.5" />
+              <span>شروع ساخت بازی</span>
+              <ArrowLeft className="w-3.5 h-3.5" />
             </button>
           </div>
         </div>
