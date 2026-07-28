@@ -179,12 +179,6 @@ export function HeroSection({ onOpenShowreel, onExploreGames }: HeroSectionProps
               onMouseDown={handleMouseDown}
               onMouseUp={handleMouseUp}
             >
-              {/* Dynamic Background Radial Ambient Glow */}
-              <div 
-                className="absolute inset-4 rounded-full blur-3xl opacity-40 transition-all duration-700 pointer-events-none"
-                style={{ backgroundColor: currentWorld.accentColor }}
-              />
-
               {/* 3D Model Object Box with preserve-3d */}
               <div 
                 className="relative w-full h-full transition-transform duration-300 ease-out flex items-center justify-center p-4"
@@ -193,12 +187,6 @@ export function HeroSection({ onOpenShowreel, onExploreGames }: HeroSectionProps
                   transform: `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(${isZoomed ? 1.25 : 1.08})`,
                 }}
               >
-                {/* Soft Contact Shadow */}
-                <div 
-                  className="absolute w-2/3 h-2/3 rounded-full bg-black/60 blur-2xl pointer-events-none transition-all duration-300"
-                  style={{ transform: 'translateZ(-40px) scale(1.1)' }}
-                />
-
                 {/* Main 3D Rendered Island Image (Z: 30px) */}
                 <div 
                   className="relative w-full h-full flex items-center justify-center"
@@ -210,9 +198,9 @@ export function HeroSection({ onOpenShowreel, onExploreGames }: HeroSectionProps
                     alt={currentWorld.title}
                     referrerPolicy="no-referrer"
                     style={{
-                      filter: `drop-shadow(0 25px 35px ${currentWorld.accentColor}50) drop-shadow(0 10px 15px rgba(0,0,0,0.8)) contrast(1.12) brightness(1.06)`,
+                      filter: `drop-shadow(0 30px 45px rgba(0,0,0,0.9)) drop-shadow(0 10px 20px ${currentWorld.accentColor}35) contrast(1.15) brightness(1.08)`,
                     }}
-                    className="w-full h-full object-contain transition-all duration-500 ease-in-out scale-110"
+                    className="w-full h-full object-contain transition-all duration-300 ease-out scale-110"
                   />
                 </div>
               </div>

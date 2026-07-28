@@ -38,15 +38,16 @@ export function removeImageBackground(imageSrc: string, colorThreshold = 210): P
         const visited = new Uint8Array(width * height);
         const queue: number[] = [];
 
-        // Helper to check if a pixel is background-like (strictly neutral white or pale light gray canvas)
+        // Helper to check if a pixel is background-like (strictly neutral pure white or light gray canvas)
         const isLightPixel = (idx: number): boolean => {
           const r = data[idx];
           const g = data[idx + 1];
           const b = data[idx + 2];
-          const avg = (r + g + b) / 3;
+          const minVal = Math.min(r, g, b);
           const maxDiff = Math.max(Math.abs(r - g), Math.abs(g - b), Math.abs(r - b));
-          // Neutral white/light gray background check: high RGB and virtually no color saturation
-          return avg >= 215 && r >= 200 && g >= 200 && b >= 200 && maxDiff < 18;
+          // Neutral studio background check: min channel >= 225 and no color tint (maxDiff <= 8).
+          // Fire, thruster plasma, orange/yellow flames, and colored glows have color tint and are 100% preserved.
+          return minVal >= 225 && maxDiff <= 8;
         };
 
         // Add top and bottom border pixels to queue
@@ -106,14 +107,14 @@ export function removeImageBackground(imageSrc: string, colorThreshold = 210): P
               if (isLightPixel(nIdx)) {
                 queue.push(nPos);
               } else {
-                // Feather edge pixels only if they are neutral white/gray canvas transition pixels
+                // Feather edge pixels only if they are neutral pure white canvas transition pixels
                 const r = data[nIdx];
                 const g = data[nIdx + 1];
                 const b = data[nIdx + 2];
-                const avg = (r + g + b) / 3;
+                const minVal = Math.min(r, g, b);
                 const maxDiff = Math.max(Math.abs(r - g), Math.abs(g - b), Math.abs(r - b));
-                if (avg > 210 && maxDiff < 18) {
-                  const alphaFactor = (255 - avg) / (255 - 210);
+                if (minVal >= 220 && maxDiff <= 8) {
+                  const alphaFactor = (255 - minVal) / (255 - 220);
                   data[nIdx + 3] = Math.floor(255 * Math.max(0, Math.min(1, alphaFactor)));
                 }
               }

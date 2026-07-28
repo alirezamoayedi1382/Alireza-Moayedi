@@ -89,7 +89,7 @@ export function ContactCTASection({ onOpenContact }: ContactCTASectionProps) {
                     style={{
                       filter: 'drop-shadow(0 15px 25px rgba(99, 91, 255, 0.45)) drop-shadow(0 8px 12px rgba(0,0,0,0.8)) contrast(1.1) brightness(1.05)',
                     }}
-                    className="w-full h-full object-contain select-none animate-[bounce_5s_infinite_ease-in-out]"
+                    className="w-full h-full object-contain select-none"
                   />
                 </div>
               </div>
