@@ -172,7 +172,7 @@ export function HeroSection({ onOpenShowreel, onExploreGames }: HeroSectionProps
             
             {/* Interactive 3D Perspective Stage Container */}
             <div 
-              className="relative w-full max-w-lg lg:max-w-xl aspect-square flex items-center justify-center cursor-grab active:cursor-grabbing select-none group"
+              className="relative w-full max-w-xl lg:max-w-2xl aspect-square flex items-center justify-center cursor-grab active:cursor-grabbing select-none group"
               style={{ perspective: '1200px' }}
               onMouseMove={handleMouseMove}
               onMouseLeave={handleMouseLeave}
@@ -181,16 +181,16 @@ export function HeroSection({ onOpenShowreel, onExploreGames }: HeroSectionProps
             >
               {/* Dynamic Background Radial Ambient Glow */}
               <div 
-                className="absolute inset-4 rounded-full blur-3xl opacity-30 transition-all duration-700 pointer-events-none"
+                className="absolute inset-2 rounded-full blur-3xl opacity-30 transition-all duration-700 pointer-events-none"
                 style={{ backgroundColor: currentWorld.accentColor }}
               />
 
               {/* 3D Model Object Box with preserve-3d */}
               <div 
-                className="relative w-4/5 h-4/5 transition-transform duration-300 ease-out flex items-center justify-center"
+                className="relative w-full h-full transition-transform duration-300 ease-out flex items-center justify-center p-2"
                 style={{
                   transformStyle: 'preserve-3d',
-                  transform: `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(${isZoomed ? 1.18 : 1})`,
+                  transform: `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(${isZoomed ? 1.25 : 1.08})`,
                 }}
               >
                 {/* Main 3D Rendered Island Image */}
@@ -203,32 +203,8 @@ export function HeroSection({ onOpenShowreel, onExploreGames }: HeroSectionProps
                     src={transparentImageMap[currentWorld.id] || currentWorld.image}
                     alt={currentWorld.title}
                     referrerPolicy="no-referrer"
-                    className="w-full h-full object-contain drop-shadow-2xl transition-all duration-500 ease-in-out"
+                    className="w-full h-full object-contain drop-shadow-2xl transition-all duration-500 ease-in-out scale-110"
                   />
-                </div>
-
-                {/* Floating Z-Depth Element 1: Engine Badge (Popped Forward in 3D Space) */}
-                <div 
-                  className="absolute top-4 right-4 bg-white/90 backdrop-blur-md border border-gray-200/80 shadow-xl rounded-xl px-3.5 py-2 flex items-center gap-2 transition-transform duration-500 pointer-events-none"
-                  style={{ transform: 'translateZ(65px) translateY(-10px)' }}
-                >
-                  <Sparkles className="w-4 h-4" style={{ color: currentWorld.accentColor }} />
-                  <div>
-                    <div className="text-[10px] font-bold text-gray-400">موتور بازی‌سازی</div>
-                    <div className="text-xs font-extrabold text-[#121417]">{currentWorld.tag}</div>
-                  </div>
-                </div>
-
-                {/* Floating Z-Depth Element 2: Camera Spec Badge (Popped Forward in 3D Space) */}
-                <div 
-                  className="absolute bottom-6 left-4 bg-[#121417]/90 text-white backdrop-blur-md border border-gray-700/80 shadow-2xl rounded-xl px-3.5 py-2 flex items-center gap-2 transition-transform duration-500 pointer-events-none"
-                  style={{ transform: 'translateZ(85px) translateY(10px)' }}
-                >
-                  <Camera className="w-4 h-4 text-emerald-400 shrink-0" />
-                  <div>
-                    <div className="text-[9px] font-bold text-gray-400">{currentWorld.cameraAngle}</div>
-                    <div className="text-xs font-bold text-emerald-300">{currentWorld.spec}</div>
-                  </div>
                 </div>
               </div>
 
