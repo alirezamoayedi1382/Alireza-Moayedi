@@ -1,11 +1,21 @@
+import { useState, useEffect } from 'react';
 import { ArrowLeft, Mail, MapPin, Phone } from 'lucide-react';
 import { STUDIO_IMAGES } from '../data/pixelforgeData';
+import { removeImageBackground } from '../utils/removeBackground';
 
 interface ContactCTASectionProps {
   onOpenContact: () => void;
 }
 
 export function ContactCTASection({ onOpenContact }: ContactCTASectionProps) {
+  const [transparentCtaIsland, setTransparentCtaIsland] = useState<string>(STUDIO_IMAGES.ctaIsland);
+
+  useEffect(() => {
+    removeImageBackground(STUDIO_IMAGES.ctaIsland, 210).then((url) => {
+      setTransparentCtaIsland(url);
+    });
+  }, []);
+
   return (
     <section className="py-12 md:py-16" id="contact">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -63,14 +73,25 @@ export function ContactCTASection({ onOpenContact }: ContactCTASectionProps) {
                 </div>
               </div>
 
-              {/* Floating Island Graphic */}
-              <div className="w-24 h-24 sm:w-28 sm:h-28 shrink-0 relative">
-                <img
-                  src={STUDIO_IMAGES.ctaIsland}
-                  alt="المان سه بعدی پیکسل‌فورج"
-                  referrerPolicy="no-referrer"
-                  className="w-full h-full object-contain drop-shadow-xl select-none"
-                />
+              {/* Floating 3D Island Graphic */}
+              <div 
+                className="w-28 h-28 sm:w-32 sm:h-32 shrink-0 relative flex items-center justify-center cursor-pointer group"
+                style={{ perspective: '800px' }}
+              >
+                <div 
+                  className="w-full h-full relative flex items-center justify-center transition-transform duration-500 ease-out group-hover:rotate-6 group-hover:scale-110"
+                  style={{ transformStyle: 'preserve-3d' }}
+                >
+                  <img
+                    src={transparentCtaIsland}
+                    alt="المان سه بعدی پیکسل‌فورج"
+                    referrerPolicy="no-referrer"
+                    style={{
+                      filter: 'drop-shadow(0 15px 25px rgba(99, 91, 255, 0.45)) drop-shadow(0 8px 12px rgba(0,0,0,0.8)) contrast(1.1) brightness(1.05)',
+                    }}
+                    className="w-full h-full object-contain select-none animate-[bounce_5s_infinite_ease-in-out]"
+                  />
+                </div>
               </div>
 
             </div>
@@ -83,3 +104,4 @@ export function ContactCTASection({ onOpenContact }: ContactCTASectionProps) {
     </section>
   );
 }
+

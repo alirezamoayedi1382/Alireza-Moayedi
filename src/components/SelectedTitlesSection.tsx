@@ -46,9 +46,8 @@ export function SelectedTitlesSection({ onSelectGame, onViewAllGames }: Selected
                   src={game.image}
                   alt={game.title}
                   referrerPolicy="no-referrer"
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 brightness-105 contrast-105"
                 />
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors" />
               </div>
 
               {/* Text Info */}

@@ -49,7 +49,7 @@ export function FeaturedProjectCard({ onSelectProject, onOpenShowreel }: Feature
                 src={FEATURED_PROJECT.image}
                 alt={FEATURED_PROJECT.title}
                 referrerPolicy="no-referrer"
-                className="w-full h-64 sm:h-72 md:h-80 object-cover transform transition-transform duration-500 group-hover:scale-105 opacity-90 group-hover:opacity-100"
+                className="w-full h-64 sm:h-72 md:h-80 object-cover transform transition-transform duration-500 group-hover:scale-105 brightness-105 contrast-105"
               />
               {/* Play Button Overlay */}
               <button

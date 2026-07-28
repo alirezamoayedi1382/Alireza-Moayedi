@@ -46,7 +46,7 @@ export function OurStudioSection({ onJoinTeam }: OurStudioSectionProps) {
                 src={STUDIO_IMAGES.team1}
                 alt="فضای کاری استودیوی پیکسل‌فورج"
                 referrerPolicy="no-referrer"
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 brightness-105 contrast-105"
               />
             </div>
 
@@ -56,7 +56,7 @@ export function OurStudioSection({ onJoinTeam }: OurStudioSectionProps) {
                 src={STUDIO_IMAGES.team2}
                 alt="همکاری اعضای تیم پیکسل‌فورج"
                 referrerPolicy="no-referrer"
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 brightness-105 contrast-105"
               />
             </div>
 
@@ -66,7 +66,7 @@ export function OurStudioSection({ onJoinTeam }: OurStudioSectionProps) {
                 src={STUDIO_IMAGES.team3}
                 alt="استراحتگاه استودیوی پیکسل‌فورج"
                 referrerPolicy="no-referrer"
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 brightness-105 contrast-105"
               />
             </div>
 

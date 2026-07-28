@@ -173,38 +173,95 @@ export function HeroSection({ onOpenShowreel, onExploreGames }: HeroSectionProps
             {/* Interactive 3D Perspective Stage Container */}
             <div 
               className="relative w-full max-w-xl lg:max-w-2xl aspect-square flex items-center justify-center cursor-grab active:cursor-grabbing select-none group"
-              style={{ perspective: '1200px' }}
+              style={{ perspective: '1400px' }}
               onMouseMove={handleMouseMove}
               onMouseLeave={handleMouseLeave}
               onMouseDown={handleMouseDown}
               onMouseUp={handleMouseUp}
             >
+              {/* Dynamic 3D HUD Camera Coordinates Badge (Top Right of Stage) */}
+              <div className="absolute top-3 right-3 z-30 flex items-center gap-2 bg-[#121418]/90 backdrop-blur-md border border-white/10 px-3 py-1.5 rounded-xl shadow-xl text-[10px] font-mono text-gray-300 pointer-events-none">
+                <span className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: currentWorld.accentColor }} />
+                <span>XYZ 3D: [{Math.round(rotateX)}°, {Math.round(rotateY)}°]</span>
+                <span className="text-gray-500">|</span>
+                <span className="text-[#635BFF] font-bold">{currentWorld.tag}</span>
+              </div>
+
               {/* Dynamic Background Radial Ambient Glow */}
               <div 
-                className="absolute inset-2 rounded-full blur-3xl opacity-30 transition-all duration-700 pointer-events-none"
+                className="absolute inset-4 rounded-full blur-3xl opacity-40 transition-all duration-700 pointer-events-none"
                 style={{ backgroundColor: currentWorld.accentColor }}
               />
 
               {/* 3D Model Object Box with preserve-3d */}
               <div 
-                className="relative w-full h-full transition-transform duration-300 ease-out flex items-center justify-center p-2"
+                className="relative w-full h-full transition-transform duration-300 ease-out flex items-center justify-center p-4"
                 style={{
                   transformStyle: 'preserve-3d',
                   transform: `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(${isZoomed ? 1.25 : 1.08})`,
                 }}
               >
-                {/* Main 3D Rendered Island Image */}
+                {/* Layer 1: 3D Grid Floor & Shadow (Z: -120px) */}
                 <div 
-                  className="relative w-full h-full flex items-center justify-center"
-                  style={{ transform: 'translateZ(0px)' }}
+                  className="absolute inset-10 rounded-full border border-dashed border-white/10 flex items-center justify-center pointer-events-none"
+                  style={{ transform: 'translateZ(-120px) rotateX(70deg)', transformStyle: 'preserve-3d' }}
+                >
+                  {/* Concentric 3D Orbit Lines */}
+                  <div className="w-full h-full rounded-full border border-white/10 animate-[spin_30s_linear_infinite]" />
+                  <div 
+                    className="absolute w-3/4 h-3/4 rounded-full border border-dashed opacity-50"
+                    style={{ borderColor: currentWorld.accentColor }}
+                  />
+                  {/* Real-time Cast Contact Shadow */}
+                  <div 
+                    className="absolute w-3/5 h-3/5 rounded-full bg-black/80 blur-xl transition-all duration-300"
+                    style={{ transform: 'scale(1.2)' }}
+                  />
+                </div>
+
+                {/* Layer 2: Rotating 3D HUD Halo Ring (Z: -60px) */}
+                <div 
+                  className="absolute w-72 h-72 rounded-full border border-white/10 pointer-events-none flex items-center justify-center"
+                  style={{ transform: 'translateZ(-60px)', transformStyle: 'preserve-3d' }}
+                >
+                  <div 
+                    className="w-full h-full rounded-full border-2 border-t-transparent border-b-transparent animate-[spin_20s_linear_infinite]"
+                    style={{ borderColor: `${currentWorld.accentColor}60` }}
+                  />
+                </div>
+
+                {/* Layer 3: Main 3D Rendered Island Image (Z: 30px) */}
+                <div 
+                  className="relative w-full h-full flex items-center justify-center transition-transform duration-500"
+                  style={{ transform: 'translateZ(30px) translateY(-10px)', transformStyle: 'preserve-3d' }}
                 >
                   <img
                     key={currentWorld.id}
                     src={transparentImageMap[currentWorld.id] || currentWorld.image}
                     alt={currentWorld.title}
                     referrerPolicy="no-referrer"
-                    className="w-full h-full object-contain drop-shadow-2xl transition-all duration-500 ease-in-out scale-110"
+                    style={{
+                      filter: `drop-shadow(0 25px 35px ${currentWorld.accentColor}50) drop-shadow(0 10px 15px rgba(0,0,0,0.8)) contrast(1.12) brightness(1.06)`,
+                    }}
+                    className="w-full h-full object-contain transition-all duration-500 ease-in-out scale-110 animate-[bounce_6s_infinite_ease-in-out]"
                   />
+                </div>
+
+                {/* Layer 4: Floating 3D Foreground Elements (Z: 90px & Z: 120px) */}
+                <div 
+                  className="absolute top-1/4 right-12 p-2 rounded-xl bg-[#121418]/90 border border-white/20 shadow-2xl backdrop-blur-md flex items-center gap-2 text-[10px] font-bold text-white pointer-events-none"
+                  style={{ transform: 'translateZ(90px)', transformStyle: 'preserve-3d' }}
+                >
+                  <Sparkles className="w-3.5 h-3.5 animate-spin" style={{ color: currentWorld.accentColor }} />
+                  <span>{currentWorld.spec}</span>
+                </div>
+
+                <div 
+                  className="absolute bottom-1/4 left-10 p-2 rounded-xl bg-[#121418]/90 border border-white/20 shadow-2xl backdrop-blur-md flex items-center gap-2 text-[10px] font-bold text-white pointer-events-none"
+                  style={{ transform: 'translateZ(110px)', transformStyle: 'preserve-3d' }}
+                >
+                  <Compass className="w-3.5 h-3.5 text-[#635BFF]" />
+                  <span>مدل ۳ بعدی زنده</span>
                 </div>
               </div>
 

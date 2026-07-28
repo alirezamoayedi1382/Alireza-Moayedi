@@ -2,10 +2,11 @@
 const transparentCache = new Map<string, string>();
 
 /**
- * Removes the light/white background from an image URL using flood-fill from edges
+ * Removes the light/white background from an image URL using flood-fill from edges,
+ * cleans edge fringes, enhances image color contrast and brightness for dark design,
  * and returns a promise resolving to a transparent PNG data URL.
  */
-export function removeImageBackground(imageSrc: string, colorThreshold = 225): Promise<string> {
+export function removeImageBackground(imageSrc: string, colorThreshold = 210): Promise<string> {
   if (transparentCache.has(imageSrc)) {
     return Promise.resolve(transparentCache.get(imageSrc)!);
   }
@@ -37,12 +38,15 @@ export function removeImageBackground(imageSrc: string, colorThreshold = 225): P
         const visited = new Uint8Array(width * height);
         const queue: number[] = [];
 
-        // Helper to check if a pixel is background-like (light / near-white)
+        // Helper to check if a pixel is background-like (light / near-white / pale gray)
         const isLightPixel = (idx: number): boolean => {
           const r = data[idx];
           const g = data[idx + 1];
           const b = data[idx + 2];
-          return r >= colorThreshold - 30 && g >= colorThreshold - 30 && b >= colorThreshold - 30 && (r + g + b) / 3 >= colorThreshold;
+          const avg = (r + g + b) / 3;
+          const maxDiff = Math.max(Math.abs(r - g), Math.abs(g - b), Math.abs(r - b));
+          // Pale/light gray or white background check
+          return avg >= colorThreshold && maxDiff < 30;
         };
 
         // Add top and bottom border pixels to queue
@@ -77,24 +81,22 @@ export function removeImageBackground(imageSrc: string, colorThreshold = 225): P
           }
         }
 
-        // BFS traversal
+        // BFS traversal to turn background pixels completely transparent
         let head = 0;
         while (head < queue.length) {
           const pos = queue[head++];
           const pxIdx = pos * 4;
 
-          // Set background pixel alpha to 0 (completely transparent)
-          data[pxIdx + 3] = 0;
+          data[pxIdx + 3] = 0; // Alpha = 0
 
           const cx = pos % width;
           const cy = Math.floor(pos / width);
 
-          // Check 4 directions
           const neighbors = [
-            cy > 0 ? pos - width : -1, // Up
-            cy < height - 1 ? pos + width : -1, // Down
-            cx > 0 ? pos - 1 : -1, // Left
-            cx < width - 1 ? pos + 1 : -1, // Right
+            cy > 0 ? pos - width : -1,
+            cy < height - 1 ? pos + width : -1,
+            cx > 0 ? pos - 1 : -1,
+            cx < width - 1 ? pos + 1 : -1,
           ];
 
           for (const nPos of neighbors) {
@@ -104,17 +106,35 @@ export function removeImageBackground(imageSrc: string, colorThreshold = 225): P
               if (isLightPixel(nIdx)) {
                 queue.push(nPos);
               } else {
-                // Soft edge smoothing for border pixels adjacent to background
+                // Feather edge pixels
                 const r = data[nIdx];
                 const g = data[nIdx + 1];
                 const b = data[nIdx + 2];
                 const avg = (r + g + b) / 3;
-                if (avg > 190) {
-                  const alphaFactor = (255 - avg) / (255 - 190);
-                  data[nIdx + 3] = Math.floor(255 * Math.max(0, Math.min(1, alphaFactor)));
+                if (avg > 180) {
+                  const alphaFactor = (255 - avg) / (255 - 180);
+                  data[nIdx + 3] = Math.floor(255 * Math.max(0, Math.min(1, alphaFactor * 0.9)));
                 }
               }
             }
+          }
+        }
+
+        // Color & contrast boost pass for non-transparent pixels to make colors punchy in dark mode
+        for (let i = 0; i < data.length; i += 4) {
+          if (data[i + 3] > 10) {
+            let r = data[i];
+            let g = data[i + 1];
+            let b = data[i + 2];
+
+            // Slightly increase contrast & brightness so details pop against dark backgrounds
+            r = Math.min(255, Math.max(0, (r - 128) * 1.08 + 132));
+            g = Math.min(255, Math.max(0, (g - 128) * 1.08 + 132));
+            b = Math.min(255, Math.max(0, (b - 128) * 1.08 + 132));
+
+            data[i] = r;
+            data[i + 1] = g;
+            data[i + 2] = b;
           }
         }
 
@@ -131,3 +151,4 @@ export function removeImageBackground(imageSrc: string, colorThreshold = 225): P
     img.onerror = () => resolve(imageSrc);
   });
 }
+
