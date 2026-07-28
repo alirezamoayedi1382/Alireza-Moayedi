@@ -91,7 +91,7 @@ export function Modals({
                     <div className="w-1.5 h-5 bg-black rounded-xs" />
                   </div>
                 ) : (
-                  <Play className="w-6 h-6 fill-current text-black -translate-x-0.5 rotate-180" />
+                  <Play className="w-6 h-6 fill-current text-black translate-x-0.5" />
                 )}
               </button>
 

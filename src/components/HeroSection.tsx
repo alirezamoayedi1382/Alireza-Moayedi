@@ -146,7 +146,7 @@ export function HeroSection({ onOpenShowreel, onExploreGames }: HeroSectionProps
                 className="group inline-flex items-center gap-3 text-xs font-bold text-[#121417] hover:text-black px-2 py-2.5 transition-colors"
               >
                 <div className="w-9 h-9 rounded-full bg-white border border-gray-200 flex items-center justify-center shadow-xs group-hover:scale-105 group-hover:border-black transition-all">
-                  <Play className="w-3.5 h-3.5 fill-current text-[#121417] -translate-x-0.5 rotate-180" />
+                  <Play className="w-3.5 h-3.5 fill-current text-[#121417] translate-x-0.5" />
                 </div>
                 <span className="tracking-wide">تماشای ویدیوی استودیو</span>
               </button>

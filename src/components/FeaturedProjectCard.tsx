@@ -58,7 +58,7 @@ export function FeaturedProjectCard({ onSelectProject, onOpenShowreel }: Feature
                 aria-label="پخش تریلر"
                 className="absolute inset-0 m-auto w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white/90 backdrop-blur-xs text-[#121417] flex items-center justify-center shadow-lg transform transition-all group-hover:scale-110 hover:bg-white"
               >
-                <Play className="w-5 h-5 fill-current text-[#121417] -translate-x-0.5 rotate-180" />
+                <Play className="w-5 h-5 fill-current text-[#121417] translate-x-0.5" />
               </button>
             </div>
 
