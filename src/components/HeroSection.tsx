@@ -179,14 +179,6 @@ export function HeroSection({ onOpenShowreel, onExploreGames }: HeroSectionProps
               onMouseDown={handleMouseDown}
               onMouseUp={handleMouseUp}
             >
-              {/* Dynamic 3D HUD Camera Coordinates Badge (Top Right of Stage) */}
-              <div className="absolute top-3 right-3 z-30 flex items-center gap-2 bg-[#121418]/90 backdrop-blur-md border border-white/10 px-3 py-1.5 rounded-xl shadow-xl text-[10px] font-mono text-gray-300 pointer-events-none">
-                <span className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: currentWorld.accentColor }} />
-                <span>XYZ 3D: [{Math.round(rotateX)}°, {Math.round(rotateY)}°]</span>
-                <span className="text-gray-500">|</span>
-                <span className="text-[#635BFF] font-bold">{currentWorld.tag}</span>
-              </div>
-
               {/* Dynamic Background Radial Ambient Glow */}
               <div 
                 className="absolute inset-4 rounded-full blur-3xl opacity-40 transition-all duration-700 pointer-events-none"
@@ -245,23 +237,6 @@ export function HeroSection({ onOpenShowreel, onExploreGames }: HeroSectionProps
                     }}
                     className="w-full h-full object-contain transition-all duration-500 ease-in-out scale-110 animate-[bounce_6s_infinite_ease-in-out]"
                   />
-                </div>
-
-                {/* Layer 4: Floating 3D Foreground Elements (Z: 90px & Z: 120px) */}
-                <div 
-                  className="absolute top-1/4 right-12 p-2 rounded-xl bg-[#121418]/90 border border-white/20 shadow-2xl backdrop-blur-md flex items-center gap-2 text-[10px] font-bold text-white pointer-events-none"
-                  style={{ transform: 'translateZ(90px)', transformStyle: 'preserve-3d' }}
-                >
-                  <Sparkles className="w-3.5 h-3.5 animate-spin" style={{ color: currentWorld.accentColor }} />
-                  <span>{currentWorld.spec}</span>
-                </div>
-
-                <div 
-                  className="absolute bottom-1/4 left-10 p-2 rounded-xl bg-[#121418]/90 border border-white/20 shadow-2xl backdrop-blur-md flex items-center gap-2 text-[10px] font-bold text-white pointer-events-none"
-                  style={{ transform: 'translateZ(110px)', transformStyle: 'preserve-3d' }}
-                >
-                  <Compass className="w-3.5 h-3.5 text-[#635BFF]" />
-                  <span>مدل ۳ بعدی زنده</span>
                 </div>
               </div>
 
