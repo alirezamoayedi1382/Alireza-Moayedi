@@ -171,3 +171,80 @@ export const STUDIO_IMAGES = {
   ctaIsland: "/src/assets/images/studio_cta_island_1785237002260.jpg",
   heroIsland: "/src/assets/images/pixelforge_hero_island_1785236857523.jpg",
 };
+
+export interface Hero3DWorld {
+  id: string;
+  title: string;
+  subtitle: string;
+  cameraAngle: string;
+  image: string;
+  baseRotateX: number;
+  baseRotateY: number;
+  accentColor: string;
+  tag: string;
+  spec: string;
+}
+
+export const HERO_3D_WORLDS: Hero3DWorld[] = [
+  {
+    id: "fantasy-realm",
+    title: "قلمرو فانتزی الدن",
+    subtitle: "دنیای ماجراجویی با جزیره شناور، کریستال و پرتال جادویی",
+    cameraAngle: "زاویه ایزومتریک روبرو (۴۵ درجه)",
+    image: "/src/assets/images/pixelforge_hero_island_1785236857523.jpg",
+    baseRotateX: 12,
+    baseRotateY: -10,
+    accentColor: "#635BFF",
+    tag: "Unreal Engine 5",
+    spec: "4K | Ray Tracing",
+  },
+  {
+    id: "cyberpunk-metropolis",
+    title: "شهر سایبرپانک نئونی",
+    subtitle: "کلان‌شهر آینده‌نگرانه با برج‌ها و ماشین‌های پرنده",
+    cameraAngle: "زاویه ایزومتریک جانبی (۳۰ درجه)",
+    image: "/src/assets/images/pixelforge_hero_cyberpunk_1785242642940.jpg",
+    baseRotateX: 18,
+    baseRotateY: 15,
+    accentColor: "#00F0FF",
+    tag: "Cyber Engine",
+    spec: "DLSS 3.5 | Volumetric Fog",
+  },
+  {
+    id: "cosmic-outpost",
+    title: "ایستگاه فضایی کیهانی",
+    subtitle: "پایگاه بین‌ستاره‌ای با موتورهای پلاسما و مدار سیاره‌ای",
+    cameraAngle: "زاویه فوقانی (نما از بالا ۲۰ درجه)",
+    image: "/src/assets/images/pixelforge_hero_cosmic_1785242656474.jpg",
+    baseRotateX: 25,
+    baseRotateY: -20,
+    accentColor: "#FF007A",
+    tag: "Procedural Universe",
+    spec: "Zero-G Physics",
+  },
+  {
+    id: "volcano-fortress",
+    title: "قلعه آتشفشانی دژ اژدها",
+    subtitle: "دژ فانتزی تاریک با رودخانه‌های گداخته و دژ سنگی",
+    cameraAngle: "زاویه مایل پایین (منظر صعودی)",
+    image: "/src/assets/images/pixelforge_hero_volcano_1785242668008.jpg",
+    baseRotateX: -8,
+    baseRotateY: 20,
+    accentColor: "#FF5500",
+    tag: "Lava Physics",
+    spec: "Dynamic Fluid Sim",
+  },
+  {
+    id: "crystal-citadel",
+    title: "جزیره کریستالی قطبی",
+    subtitle: "قلمرو منجمد با کریستال‌های درخشان و شفق قطبی",
+    cameraAngle: "زاویه قطری مورب (۲۵ درجه)",
+    image: "/src/assets/images/pixelforge_hero_ice_1785242679844.jpg",
+    baseRotateX: 15,
+    baseRotateY: -25,
+    accentColor: "#00E5FF",
+    tag: "Subsurface Scattering",
+    spec: "HDR Aurora Lighting",
+  },
+];
+
